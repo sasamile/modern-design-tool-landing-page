@@ -1,4 +1,4 @@
-import Button from "./Button";
+import Button from "./common/Button";
 import designExample1Image from "@/public/images/design-example-1.png";
 import designExample2Image from "@/public/images/design-example-2.png";
 import Image from "next/image";
@@ -8,14 +8,17 @@ export default function Hero() {
   return (
     <section className="py-24 overflow-x-clip">
       <div className="container mx-auto relative">
-        <div className="absolute -left-32 top-16">
+        <div className="absolute -left-32 top-16 hidden lg:block">
           <Image src={designExample1Image} alt="Design Example 1" />
         </div>
-        <div className="absolute -right-64 -top-16">
+        <div className="absolute -right-64 -top-16 hidden lg:block">
           <Image src={designExample2Image} alt="Design Example 2" />
         </div>
         <div className="absolute left-56 top-96">
           <Pointer name="Andrea" color="blue" />
+        </div >
+        <div className="absolute right-80 -top-4">
+          <Pointer name="Bryan" color="red" />
         </div>
         <div className="flex justify-center items-center">
           <div className="inline-flex py-1 px-3 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full text-neutral-950 font-semibold">
@@ -35,7 +38,7 @@ export default function Hero() {
           <input
             type="email"
             placeholder="Enter your email"
-            className="bg-transparent px-4 md:flex-1"
+            className="bg-transparent px-4 md:flex-1 w-full"
           />
           <Button
             type="submit"

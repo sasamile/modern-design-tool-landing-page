@@ -1,6 +1,6 @@
 import Image from "next/image";
 import LogoImage from "@/public/images/logo.svg";
-import Button from "./Button";
+import Button from "./common/Button";
 
 const navLinks = [
   { label: "Home", href: "#" },

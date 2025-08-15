@@ -1,10 +1,19 @@
 import { twMerge } from "tailwind-merge";
 
+const colorMap = {
+  red: "bg-red-500",
+  blue: "bg-blue-500",
+  green: "bg-green-500",
+  yellow: "bg-yellow-500",
+  purple: "bg-purple-500",
+} as const;
+
 function Pointer(props: {
   name: string;
-  color?: "red" | "blue" | "green" | "yellow" | "purple";
+  color?: keyof typeof colorMap;
 }) {
   const { name, color } = props;
+
   return (
     <div className="relative">
       <svg
@@ -25,8 +34,8 @@ function Pointer(props: {
       <div className="absolute top-full left-full">
         <span
           className={twMerge(
-            "inline-flex rounded-full font-bold text-sm  px-2 rounded-tl-none text-white bg-blue-500",
-            color ? `bg-${color}-500 ` : "bg-gray-500"
+            "inline-flex rounded-full font-bold text-sm px-2 rounded-tl-none text-white",
+            color ? colorMap[color] : "bg-gray-500"
           )}
         >
           {name}
